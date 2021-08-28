@@ -1,18 +1,15 @@
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser')
+const statusRoute = require('./statusRoute')
+const categoriesRoute = require('./categoriesRoute')
 
 const getRoutes = app => {
     
     app.use(
         bodyParser.urlencoded({ extended: true }), 
-        bodyParser.json()
-    );
-
-    app.get('/heartbeat', (req, res) => {
-        res.status(200).json({
-            msg: 'there is heartbeat',
-            api: true
-        });
-    })
+        bodyParser.json(),
+        statusRoute,
+        categoriesRoute
+    );    
     
 };
 
