@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
+const routes = require('./routes');
 
-const getRoutes = require('./routes');
-
-getRoutes(app);
+routes(app);
 
 app.listen(4200);
