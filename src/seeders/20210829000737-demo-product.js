@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-     await queryInterface.bulkInsert('Products', [
+    await queryInterface.bulkInsert('Products', [
       {
         name: 'Coxinha De Costela',
         category_id: 1,
@@ -32,7 +32,7 @@ module.exports = {
         status: true,
         createdAt: new Date(),
         updatedAt: new Date()
-      },{
+      }, {
         name: 'Cerveja Heineken lata',
         category_id: 2,
         description: 'Cerveja Heineken lata',
@@ -62,7 +62,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       }
-    ], {});
+    ], {})
   },
 
   down: async (queryInterface, Sequelize) => {
@@ -73,4 +73,4 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
   }
-};
+}

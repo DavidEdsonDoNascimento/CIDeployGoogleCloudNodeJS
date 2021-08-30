@@ -25,3 +25,10 @@
 * Criar arquivo semente Categories : **npx sequelize-cli seed:generate --name demo-category**
 * Rodando Seed's : **npx sequelize-cli db:seed:all**
 
+### ESLint
+
+* Adicionar dependencia **yarn add eslint -D**
+* Rodando inicializador **yarn run eslint --init**
+* Escolhido o modelo standard
+* Adicionar scripts de automatização eslint no package.json **eslint .** e **eslint --fix**
+* Rodando eslint e corrigir fixes até estar tudo certo

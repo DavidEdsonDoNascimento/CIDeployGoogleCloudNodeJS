@@ -5,7 +5,9 @@
   "author": "David Edson <david.contato.tec@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -16,6 +18,11 @@
     "sequelize": "^6.6.5"
   },
   "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
     "nodemon": "^2.0.12",
     "path": "^0.12.7",
     "sequelize-cli": "^6.2.0"
