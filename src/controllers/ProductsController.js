@@ -52,6 +52,15 @@ class ProductsController {
       return res.status(500).json(error)
     }
   }
+
+  static validate({ name, category_id, price, discount_price }){
+    
+    if(!name || name?.length > 52 || !category_id || price < discount_price){
+      return false
+    }
+
+    return true
+  }
 }
 
 module.exports = ProductsController

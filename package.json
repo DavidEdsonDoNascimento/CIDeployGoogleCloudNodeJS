@@ -23,6 +23,7 @@
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
+    "jest": "^27.1.0",
     "nodemon": "^2.0.12",
     "path": "^0.12.7",
     "sequelize-cli": "^6.2.0"
