@@ -1,12 +1,12 @@
 const productsController = require('./../../controllers/ProductsController')
 
-describe('Product listing', () => {
-  test('test product', () => {
+describe('Controller: Products', () => {
+  test('Check if the product is valid', () => {
     expect(productsController.validate({
-        name: 'Product test',
-        category_id: 1,
-        price: 10,
-        discount_price: 8
+      name: 'Product test',
+      categoryId: 1,
+      price: 10,
+      discountPrice: 8
     })).toBe(true)
   })
 })

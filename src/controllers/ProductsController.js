@@ -22,7 +22,15 @@ class ProductsController {
 
   static async insert (req, res) {
     try {
-      const product = await db.Products.create({ ...req.body, createdAt: new Date(), updatedAt: new Date() })
+      const { body } = req
+      const isValid = ProductsController.validate(body)
+
+      if (!isValid) {
+        throw new Error('Product creation not done, invalid requisition')
+      }
+
+      const product = await db.Products.create({ ...body, createdAt: new Date(), updatedAt: new Date() })
+
       return res.status(201).json(product)
     } catch (error) {
       return res.status(500).json(error)
@@ -53,9 +61,8 @@ class ProductsController {
     }
   }
 
-  static validate({ name, category_id, price, discount_price }){
-    
-    if(!name || name?.length > 52 || !category_id || price < discount_price){
+  static validate ({ name, categoryId, price, discountPrice }) {
+    if (!name || name?.length > 52 || !categoryId || price < discountPrice) {
       return false
     }
 
