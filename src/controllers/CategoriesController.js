@@ -12,8 +12,15 @@ class CategoriesController {
 
   static async insert (req, res) {
     try {
-      await this.validate({ ...req.body, createdAt: new Date(), updatedAt: new Date() })
-      const category = await db.create({ ...req.body, createdAt: new Date(), updatedAt: new Date() })
+      const { name } = req.body
+
+      const isValid = CategoriesController.validate(name)
+      
+      if(!isValid){
+        throw new Error('Parameter name invalid')
+      }
+
+      const category = await db.create({ name, status: true, createdAt: new Date(), updatedAt: new Date() })
       return res.status(200).json(category)
     } catch (error) {
       return res.status(404).json(error)
@@ -22,8 +29,9 @@ class CategoriesController {
 
   static validate (name) {
     if (typeof name !== 'string' || name.length > 25) {
-      throw new Error('Parameter name invalid')
+      return false
     }
+
     return true
   }
 }
